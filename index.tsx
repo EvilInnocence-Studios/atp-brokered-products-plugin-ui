@@ -6,5 +6,7 @@ export const module:IModule = {
     name: "brokered-products-plugin",
 };
 
-// Register plugins
+// -- Register plugins -- //
+
+// Adds an add to cart button override for brokered products
 storePlugins.cart.addButton.register(brokeredProductLink);
