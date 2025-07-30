@@ -1,6 +1,7 @@
 import { IModule } from "@core/lib/module";
-import { plugins as storePlugins } from "@store/lib/plugin/slots";
-import { brokeredProductLink } from "./lib/brokeredProductLink";
+import { storePlugins } from "@store/lib/plugin/slots";
+import { brokeredProductLink } from "./lib/plugin/brokeredProductLink";
+import { registerProductEditorDetailsPlugins } from "./lib/plugin/productEditorDetails";
 
 export const module:IModule = {
     name: "brokered-products-plugin",
@@ -10,3 +11,5 @@ export const module:IModule = {
 
 // Adds an add to cart button override for brokered products
 storePlugins.cart.addButton.register(brokeredProductLink);
+
+registerProductEditorDetailsPlugins();
