@@ -2,6 +2,7 @@ import { IModule } from "@core/lib/module";
 import { storePlugins } from "@store/lib/plugin/slots";
 import { brokeredProductLink } from "./lib/plugin/brokeredProductLink";
 import { registerProductEditorDetailsPlugins } from "./lib/plugin/productEditorDetails";
+import { registerProductManagerColumnPlugins } from "./lib/plugin/productManagerColumns";
 
 export const module:IModule = {
     name: "brokered-products-plugin",
@@ -13,3 +14,4 @@ export const module:IModule = {
 storePlugins.cart.addButton.register(brokeredProductLink);
 
 registerProductEditorDetailsPlugins();
+registerProductManagerColumnPlugins();
