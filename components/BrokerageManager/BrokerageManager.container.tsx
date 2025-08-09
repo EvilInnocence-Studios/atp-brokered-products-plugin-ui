@@ -1,13 +1,12 @@
-import { createInjector, inject, mergeProps } from "unstateless";
-import {BrokerageManagerComponent} from "./BrokerageManager.component";
-import {IBrokerageManagerInputProps, BrokerageManagerProps, IBrokerageManagerProps} from "./BrokerageManager.d";
 import { IBrokerage } from "@brokered-products-plugin-shared/brokerage/types";
-import { useLoaderAsync } from "@core/lib/useLoader";
-import { services } from "@core/lib/api";
-import { useEffect, useState } from "react";
-import { Editable } from "@core/components/Editable";
-import { Button } from "antd";
 import { DeleteBtn } from "@core/components/DeleteBtn";
+import { Editable } from "@core/components/Editable";
+import { services } from "@core/lib/api";
+import { useLoaderAsync } from "@core/lib/useLoader";
+import { useEffect, useState } from "react";
+import { createInjector, inject, mergeProps } from "unstateless";
+import { BrokerageManagerComponent } from "./BrokerageManager.component";
+import { BrokerageManagerProps, IBrokerageManagerInputProps, IBrokerageManagerProps } from "./BrokerageManager.d";
 
 const injectBrokerageManagerProps = createInjector(({}:IBrokerageManagerInputProps):IBrokerageManagerProps => {
     const [brokerages, setBrokerages] = useState<IBrokerage[]>([]);
