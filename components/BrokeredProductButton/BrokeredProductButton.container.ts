@@ -1,18 +1,13 @@
-import { switchOn } from "ts-functional";
+import { generateBrokeredProductUrl } from "@brokered-products-plugin-shared/brokerage/util";
+import { useBrokerageUrlTemplate } from "@brokered-products-plugin/lib/useBrokerages";
 import { createInjector, inject, mergeProps } from "unstateless";
 import { BrokeredProductButtonComponent } from "./BrokeredProductButton.component";
 import { BrokeredProductButtonProps, IBrokeredProductButtonInputProps, IBrokeredProductButtonProps } from "./BrokeredProductButton.d";
 
 const injectBrokeredProductButtonProps = createInjector(({product}:IBrokeredProductButtonInputProps):IBrokeredProductButtonProps => {
-    const brokeredLink = switchOn(product.brokeredAt || "", {
-            Daz:         () => `https://www.daz3d.com/${product.brokerageProductId?.split(":")[1]}`,
-            RuntimeDNA:  () => `https://www.daz3d.com/${product.brokerageProductId?.split(":")[1]}`,
-            Renderosity: () => `https://www.renderosity.com/marketplace/products/${product.brokerageProductId?.split(":")[1]}`,
-            HiveWire:    () => "https://hivewire3d.com/",
-            default:     () => "",
-        }) || "";
+    const template = useBrokerageUrlTemplate(product.brokeredAt || "");
     
-
+    const brokeredLink = generateBrokeredProductUrl(template,product.brokerageProductId || "");
     return {brokeredLink};
 });
 
