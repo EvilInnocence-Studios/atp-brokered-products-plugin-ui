@@ -1,14 +1,19 @@
 import { generateBrokeredProductUrl } from "@brokered-products-plugin-shared/brokerage/util";
+import { IBrokerableProduct } from "@brokered-products-plugin-shared/product/types";
 import { Editable } from "@core/components/Editable";
 import { Label } from "@core/components/Label";
+import { IUpdater } from "@core/lib/useUpdater";
 import { storePlugins } from "@store/lib/plugin/slots";
-import { useBrokerages, useBrokerageUrlTemplate } from "../useBrokerages";
 import { Select } from "antd";
+import { useBrokerages, useBrokerageUrlTemplate } from "../useBrokerages";
 
 export const registerProductEditorDetailsPlugins = () => {
-    storePlugins.product.editor.details.register(500, ({history:{entity:product}, updateString}) => {
+    storePlugins.product.editor.details.register(500, props => {
+        const {history:{entity:product}, updateString} = props as IUpdater<IBrokerableProduct>;
+
         const brokerages = useBrokerages();
         const template = useBrokerageUrlTemplate(product.brokeredAt || "");
+        
         return <>
             <Label label="Brokered">
                 <Select
