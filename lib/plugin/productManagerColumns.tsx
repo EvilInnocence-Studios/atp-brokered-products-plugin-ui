@@ -1,12 +1,12 @@
+import { IBrokerableProduct } from "@brokered-products-plugin-shared/product/types";
+import { ITableFilters } from "@core/lib/useTableFilters";
 import { storePlugins } from "@store/lib/plugin/slots";
 import { useBrokerages } from "../useBrokerages";
-import { IProduct } from "@store-shared/product/types";
-import { ITableFilters } from "@core/lib/useTableFilters";
 
 const regColumn = storePlugins.product.manager.columns.registerColumn;
 const regColumnSet = storePlugins.product.manager.columns.registerColumnSet;
 
-const BrokeredAtFilter = ({filters}:{filters: ITableFilters<IProduct>}) => {
+const BrokeredAtFilter = ({filters}:{filters: ITableFilters<IBrokerableProduct>}) => {
     const brokerages = useBrokerages();
     const names = brokerages.map(b => b.name);
 
@@ -17,7 +17,7 @@ export const registerProductManagerColumnPlugins = () => {
     regColumn({
         key: "brokeredAt",
         column: ({filters}) => ({
-            title: <BrokeredAtFilter filters={filters} />,
+            title: <BrokeredAtFilter filters={filters as ITableFilters<IBrokerableProduct>} />,
             dataIndex: "brokeredAt",
             key: "brokeredAt",
         }),

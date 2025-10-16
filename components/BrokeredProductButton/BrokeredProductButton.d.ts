@@ -1,3 +1,4 @@
+import { IBrokerableProduct } from "@brokered-products-plugin-shared/product/types";
 import { IProduct } from "@store-shared/product/types";
 
 export declare interface IBrokeredProductButtonProps {
@@ -6,7 +7,7 @@ export declare interface IBrokeredProductButtonProps {
 
 // What gets passed into the component from the parent as attributes
 export declare interface IBrokeredProductButtonInputProps {
-    product: IProduct;
+    product: IBrokerableProduct;
 }
 
 export type BrokeredProductButtonProps = IBrokeredProductButtonInputProps & IBrokeredProductButtonProps;

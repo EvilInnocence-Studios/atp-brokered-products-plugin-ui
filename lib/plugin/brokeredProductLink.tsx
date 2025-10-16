@@ -4,5 +4,5 @@ import { IAddToCartPluginProps } from "@store/lib/plugin/slots";
 
 export const brokeredProductLink = {
     filter: ({product}:IAddToCartPluginProps) => !!(product as IBrokerableProduct).brokerageProductId,
-    plugin: ({product}:IAddToCartPluginProps) => <BrokeredProductButton product={product} />,
+    plugin: ({product}:IAddToCartPluginProps) => <BrokeredProductButton product={product as IBrokerableProduct} />,
 }
