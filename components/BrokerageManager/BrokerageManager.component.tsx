@@ -3,6 +3,7 @@ import {BrokerageManagerProps} from "./BrokerageManager.d";
 import styles from './BrokerageManager.module.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { ClearCacheButton } from "@common/components/ClearCacheButton";
 
 export const BrokerageManagerComponent = ({brokerages, isLoading, columns, create}:BrokerageManagerProps) =>
     <Spin spinning={isLoading}>
@@ -12,6 +13,8 @@ export const BrokerageManagerComponent = ({brokerages, isLoading, columns, creat
                 <Button type="primary" onClick={create}>
                     <FontAwesomeIcon icon={faPlus} /> Create new brokerage
                 </Button>
+                &nbsp;
+                <ClearCacheButton entity="brokerage" cacheType="brokerage" />
             </h1>
             <Table 
                 dataSource={brokerages}
