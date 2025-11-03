@@ -1,5 +1,6 @@
 import { generateBrokeredProductUrl } from "@brokered-products-plugin-shared/brokerage/util";
 import { useBrokerageUrlTemplate } from "@brokered-products-plugin/lib/useBrokerages";
+import { overridable } from "@core/lib/overridable";
 import { createInjector, inject, mergeProps } from "unstateless";
 import { BrokeredProductButtonComponent } from "./BrokeredProductButton.component";
 import { BrokeredProductButtonProps, IBrokeredProductButtonInputProps, IBrokeredProductButtonProps } from "./BrokeredProductButton.d";
@@ -15,4 +16,4 @@ const connect = inject<IBrokeredProductButtonInputProps, BrokeredProductButtonPr
     injectBrokeredProductButtonProps,
 ));
 
-export const BrokeredProductButton = connect(BrokeredProductButtonComponent);
+export const BrokeredProductButton = overridable<IBrokeredProductButtonInputProps>(connect(BrokeredProductButtonComponent));

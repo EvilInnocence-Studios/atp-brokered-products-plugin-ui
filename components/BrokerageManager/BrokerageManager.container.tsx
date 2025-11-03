@@ -2,6 +2,7 @@ import { IBrokerage } from "@brokered-products-plugin-shared/brokerage/types";
 import { DeleteBtn } from "@core/components/DeleteBtn";
 import { Editable } from "@core/components/Editable";
 import { services } from "@core/lib/api";
+import { overridable } from "@core/lib/overridable";
 import { useLoaderAsync } from "@core/lib/useLoader";
 import { useEffect, useState } from "react";
 import { createInjector, inject, mergeProps } from "unstateless";
@@ -62,4 +63,4 @@ const connect = inject<IBrokerageManagerInputProps, BrokerageManagerProps>(merge
     injectBrokerageManagerProps,
 ));
 
-export const BrokerageManager = connect(BrokerageManagerComponent);
+export const BrokerageManager = overridable<IBrokerageManagerInputProps>(connect(BrokerageManagerComponent));
