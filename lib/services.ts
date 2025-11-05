@@ -2,7 +2,7 @@ import { IBrokerage, NewBrokerage } from "@brokered-products-plugin-shared/broke
 import { IMethods } from "@core/lib/types";
 import { getResults } from "@core/lib/util";
 
-export const brokerageServices = ({get, post, patch, remove}:IMethods) => ({
+export const brokeredProductsPluginServices = ({get, post, patch, remove}:IMethods) => ({
     brokerage: {
         search: ():Promise<IBrokerage[]> => get("brokerage").then(getResults),
         get: (id:string):Promise<IBrokerage> => get(`brokerage/${id}`).then(getResults),
