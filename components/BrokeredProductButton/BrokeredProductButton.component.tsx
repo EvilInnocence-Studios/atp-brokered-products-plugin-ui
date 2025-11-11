@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "antd";
 import { BrokeredProductButtonProps } from "./BrokeredProductButton.d";
 
-export const BrokeredProductButtonComponent = ({product, brokeredLink}:BrokeredProductButtonProps) =>
-    <Button type="primary" size="small" onClick={() => window.open(brokeredLink)}>
+export const BrokeredProductButtonComponent = ({product, brokeredLink, size}:BrokeredProductButtonProps) =>
+    <Button type="primary" size={size} onClick={() => window.open(brokeredLink)}>
         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         {product.brokeredAt}
     </Button>;

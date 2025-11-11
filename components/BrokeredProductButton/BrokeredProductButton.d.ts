@@ -8,6 +8,7 @@ export declare interface IBrokeredProductButtonProps {
 // What gets passed into the component from the parent as attributes
 export declare interface IBrokeredProductButtonInputProps {
     product: IBrokerableProduct;
+    size?: "small" | "large";
 }
 
 export type BrokeredProductButtonProps = IBrokeredProductButtonInputProps & IBrokeredProductButtonProps;
