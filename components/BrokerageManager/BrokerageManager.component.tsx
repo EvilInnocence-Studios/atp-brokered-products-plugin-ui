@@ -4,8 +4,9 @@ import styles from './BrokerageManager.module.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { ClearCacheButton } from "@common/components/ClearCacheButton";
+import { overridable } from "@core/lib/overridable";
 
-export const BrokerageManagerComponent = ({brokerages, isLoading, columns, create}:BrokerageManagerProps) =>
+export const BrokerageManagerComponent = overridable(({brokerages, isLoading, columns, create}:BrokerageManagerProps) =>
     <Spin spinning={isLoading}>
         <div className={styles.brokerageManager}>
             <h1>
@@ -23,4 +24,5 @@ export const BrokerageManagerComponent = ({brokerages, isLoading, columns, creat
                 pagination={false}
             />
         </div>
-    </Spin>;
+    </Spin>
+);
