@@ -62,5 +62,6 @@ const injectBrokerageManagerProps = createInjector(({}:IBrokerageManagerInputPro
 const connect = inject<IBrokerageManagerInputProps, BrokerageManagerProps>(mergeProps(
     injectBrokerageManagerProps,
 ));
+export const connectBrokerageManager = connect;
 
 export const BrokerageManager = overridable<IBrokerageManagerInputProps>(connect(BrokerageManagerComponent));

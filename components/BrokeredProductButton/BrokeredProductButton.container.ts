@@ -15,5 +15,6 @@ const injectBrokeredProductButtonProps = createInjector(({product}:IBrokeredProd
 const connect = inject<IBrokeredProductButtonInputProps, BrokeredProductButtonProps>(mergeProps(
     injectBrokeredProductButtonProps,
 ));
+export const connectBrokeredProductButton = connect;
 
 export const BrokeredProductButton = overridable<IBrokeredProductButtonInputProps>(connect(BrokeredProductButtonComponent));
