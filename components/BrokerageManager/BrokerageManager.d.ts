@@ -10,7 +10,7 @@ export declare interface IBrokerageManagerProps {
 
 // What gets passed into the component from the parent as attributes
 export declare interface IBrokerageManagerInputProps {
-
+    classes?: any;
 }
 
 export type BrokerageManagerProps = IBrokerageManagerInputProps & IBrokerageManagerProps;

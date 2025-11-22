@@ -1,14 +1,14 @@
 import { Button, Spin, Table } from "antd";
-import {BrokerageManagerProps} from "./BrokerageManager.d";
+import { BrokerageManagerProps } from "./BrokerageManager.d";
 import styles from './BrokerageManager.module.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { ClearCacheButton } from "@common/components/ClearCacheButton";
 import { overridable } from "@core/lib/overridable";
 
-export const BrokerageManagerComponent = overridable(({brokerages, isLoading, columns, create}:BrokerageManagerProps) =>
+export const BrokerageManagerComponent = overridable(({ brokerages, isLoading, columns, create, classes = styles }: BrokerageManagerProps) =>
     <Spin spinning={isLoading}>
-        <div className={styles.brokerageManager}>
+        <div className={classes.brokerageManager}>
             <h1>
                 <FontAwesomeIcon icon={faHouse} /> Brokerages&nbsp;
                 <Button type="primary" onClick={create}>
@@ -17,7 +17,7 @@ export const BrokerageManagerComponent = overridable(({brokerages, isLoading, co
                 &nbsp;
                 <ClearCacheButton entity="brokerage" cacheType="brokerage" />
             </h1>
-            <Table 
+            <Table
                 dataSource={brokerages}
                 columns={columns}
                 rowKey="id"

@@ -9,6 +9,7 @@ export declare interface IBrokeredProductButtonProps {
 export declare interface IBrokeredProductButtonInputProps {
     product: IBrokerableProduct;
     size?: "small" | "large";
+    classes?: any;
 }
 
 export type BrokeredProductButtonProps = IBrokeredProductButtonInputProps & IBrokeredProductButtonProps;
